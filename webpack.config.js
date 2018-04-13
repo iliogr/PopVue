@@ -41,10 +41,14 @@ const config = {
     },
     entry: './src/plugin.js',
     output: {
-        filename: 'bundle.js'
+        filename: 'vtooltip.js'
     },
-    externals: {
-        lodash: 'loadash'
+    externals : {
+        lodash : {
+            commonjs: "lodash",
+            amd: "lodash",
+            root: "_"
+        }
     },
     mode: buildingForLocal() ? 'development' : 'production',
     devServer: {

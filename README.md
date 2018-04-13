@@ -3,12 +3,12 @@ This is a tooltip component for VueJS 2.x
 
 **Note:** The tooltip will automatically position itself based on the position of the hovered element in the page.
 
-1. Install the plugin:
+1. Install the Component:
 ```
 npm install --save v-poptool
 ```
 
-2. Add the plugin into your app:
+2. Add the Component to your app:
 ```javascript
 import Vue from 'vue'
 import Vtooltip from 'v-poptool'
@@ -56,3 +56,5 @@ components: {
 </vtooltip>
 
 ```
+## Build from source
+`npm run build`

@@ -1,14 +1,14 @@
 {
   "name": "v-poptool",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "A Vue.js component for tooltips",
-  "main": "dist/v-tooltip.js",
+  "main": "dist/vtooltip.js",
   "scripts": {
     "build": "rimraf ./dist && webpack --config ./webpack.config.js"
   },
   "author": "Aris Iliopoulos",
   "license": "MIT",
-  "keywords": ["vuejs", "vue", "popup", "tooltip"],
+  "keywords": [],
   "dependencies": {
     "lodash": "^4.17.5"
   },
@@ -16,7 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/iliogr/v-tooltip"
   },
-  "keywords": [],
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",

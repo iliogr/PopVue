@@ -86,7 +86,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
 .tooltip {
     --main-bg-color: #000;
