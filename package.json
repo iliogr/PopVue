@@ -1,6 +1,6 @@
 {
-  "name": "v-tooltip",
-  "version": "1.0.0",
+  "name": "v-poptool",
+  "version": "1.0.2",
   "description": "A Vue.js component for tooltips",
   "main": "dist/v-tooltip.js",
   "scripts": {
@@ -8,6 +8,7 @@
   },
   "author": "Aris Iliopoulos",
   "license": "MIT",
+  "keywords": ["vuejs", "vue", "popup", "tooltip"],
   "dependencies": {
     "lodash": "^4.17.5"
   },

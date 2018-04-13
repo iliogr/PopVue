@@ -5,13 +5,13 @@ This is a tooltip component for VueJS 2.x
 
 1. Install the plugin:
 ```
-npm install --save v-tooltip
+npm install --save v-poptool
 ```
 
 2. Add the plugin into your app:
 ```javascript
 import Vue from 'vue'
-import Vtooltip from 'v-tooltip'
+import Vtooltip from 'v-poptool'
 
 components: {
     Vtooltip

@@ -2,9 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const NODE_ENV = process.env.NODE_ENV;
-
-NODE_ENV = 'production';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const setPath = function(folderName) {
     return path.join(__dirname, folderName);
