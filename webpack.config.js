@@ -1,60 +1,110 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
 const path = require('path');
+const fs = require('fs');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const NODE_ENV = process.env.NODE_ENV;
 
-var config = {
-    output: {
-        path: path.resolve(__dirname + '/dist/'),
+NODE_ENV = 'production';
+
+const setPath = function(folderName) {
+    return path.join(__dirname, folderName);
+}
+const isProd = function() {
+    return (process.env.NODE_ENV === 'production') ? true : false;
+}
+const buildingForLocal = () => {
+    return (NODE_ENV === 'development');
+};
+const setPublicPath = () => {
+    let env = NODE_ENV;
+    if (env === 'production') {
+        return 'https://your-host.com/production/';
+    } else if (env === 'staging') {
+        return 'https://your-host.com/staging/';
+    } else {
+        return '/';
+    }
+};
+
+const extractCSS = new ExtractTextPlugin({
+    filename: "css/styles.[hash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
+const config = {
+    optimization: {
+        runtimeChunk: false,
+        splitChunks: {
+            chunks: "all",
+        }
     },
+    resolveLoader: {
+        modules: [setPath('node_modules')]
+    },
+    entry: './src/plugin.js',
+    output: {
+        filename: 'bundle.js'
+    },
+    externals: {
+        lodash: 'loadash'
+    },
+    mode: buildingForLocal() ? 'development' : 'production',
+    devServer: {
+        historyApiFallback: true,
+        noInfo: false
+    },
+    plugins: [
+        // extractCSS,
+        new webpack.DefinePlugin({
+            'process.env': {
+                isStaging: (NODE_ENV === 'development' || NODE_ENV === 'staging'),
+                NODE_ENV: '"' + NODE_ENV + '"'
+            }
+        })
+    ],
     module: {
-        loaders: [{
-                test: /\.js$/,
-                loader: 'babel',
-                include: __dirname,
-                exclude: /node_modules/
-            },
+        rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue'
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        js: 'babel-loader'
+                    }
+                }
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [{
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['es2015']
+                    }
+                }]
             },
             {
                 test: /\.css$/,
-                loader: 'style!less!css'
+                use: extractCSS.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader", "postcss-loader"]
+                })
+            },
+            {
+                test: /\.scss$/,
+                use: !buildingForLocal() ?
+                    extractCSS.extract({
+                        fallback: "style-loader",
+                        use: ['css-loader', 'postcss-loader', 'sass-loader']
+                    }) : [{
+                        loader: "style-loader" // creates style nodes from JS strings
+                    }, {
+                        loader: "css-loader" // translates CSS into CommonJS
+                    }, {
+                        loader: "sass-loader" // compiles Sass to CSS
+                    }]
             }
         ]
     },
-    externals: {
-        moment: 'moment'
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            sourceMap: false,
-            mangle: true,
-            compress: {
-                warnings: false
-            }
-        })
-    ]
 };
-
-
-module.exports = [
-    merge(config, {
-        entry: path.resolve(__dirname + '/src/plugin.js'),
-        output: {
-            filename: 'v-pop.min.js',
-            libraryTarget: 'window',
-            library: 'VPop',
-        }
-    }),
-    merge(config, {
-        entry: path.resolve(__dirname + '/src/Vpop.vue'),
-        output: {
-            filename: 'v-pop.js',
-            libraryTarget: 'umd',
-            library: 'v-pop',
-            umdNamedDefine: true
-        }
-    })
-];
+module.exports = config;

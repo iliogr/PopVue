@@ -13,7 +13,7 @@
 import { cloneDeep } from 'lodash';
 
 export default {
-    name: 'Vpop',
+    name: 'Vtooltip',
     props: ['options'],
     data() {
         return {

@@ -1,7 +1,7 @@
-import Vpop from './Vpop.vue';
+import Vtooltip from './Vtooltip.vue';
 
 module.exports = {
     install: function (Vue, options) {
-        Vue.component('v-pop', Vpop);
+        Vue.component('v-tooltip', Vtooltip);
     }
 };

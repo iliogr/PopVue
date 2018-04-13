@@ -1,28 +1,30 @@
 ## Getting started
-This package offers two different usages: [directive](#directive) or [component](#component). You can use them to create tooltips, popovers or all kinds of dropdowns.
+This is a tooltip component for VueJS 2.x
+
+**Note:** The tooltip will automatically position itself based on the position of the hovered element in the page.
 
 1. Install the plugin:
 ```
-npm install --save v-pop
+npm install --save v-tooltip
 ```
 
 2. Add the plugin into your app:
 ```javascript
 import Vue from 'vue'
-import Vpop from 'v-pop'
+import Vtooltip from 'v-tooltip'
 
 components: {
-    Vpop
+    Vtooltip
 }
 ```
 
 ## Usage
 1. Add the component wherever you need it.
 ```html
-<vpop>
+<vtooltip>
     <div slot="content">This is what goes inside the tooltip</div>
     <div slot="tooltip-text">Hover over me</div>
-</vpop>
+</vtooltip>
 ```
 
 ## Options
@@ -36,3 +38,21 @@ components: {
 | hOffset         | horizontal offset of the tooltip                                          | Number                 |  0        |
 | vOffset         | vertical offset of the tooltip                                          | Number                 |  0        |
 | arrowOffset  | horizontal offset of the arrow | Number                | 0  |
+
+#### Options Example:
+```html
+<vtooltip :options="{
+	color: red,
+    backgroundColor: #DDD,
+    fontSize: 16,
+    textAlign: center,
+    arrowPlacement: right,
+    hOffset: 10,
+    Voffset: 2,
+    arrowOffset: 15
+}">
+    <div slot="content">This is a tooltip with custom options</div>
+    <div slot="tooltip-text">Hover over me</div>
+</vtooltip>
+
+```
