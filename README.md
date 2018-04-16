@@ -58,5 +58,5 @@ components: {
 </vtooltip>
 
 ```
-## Build from source
-`npm run build`
+## Build the example
+Go to the `examples` folder and run `npm run dev`
