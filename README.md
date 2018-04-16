@@ -2,7 +2,8 @@
 This is a tooltip component for VueJS 2.x
 
 **Note:** The tooltip will automatically position itself based on the position of the hovered element in the page, as shown on the gif below:
-![Example](./example.gif)
+
+![Example](./examples/tooltip/example.gif)
 
 1. Install the Component:
 ```

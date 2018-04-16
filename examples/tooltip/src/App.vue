@@ -90,38 +90,45 @@ export default {
 </script>
 
 <style>
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+}
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #DDD;
+    font-size: 35px;
     position: relative;
-    width: 100%;
-    height: 95vh;
+    height: 100vh;
+    background: black;
 }
 
 
 .top-left{
     position: absolute;
-    left: 50px;
+    left: 150px;
     top: 50px;
 }
 .top-right{
     position: absolute;
-    right: 50px;
+    right: 150px;
     top: 50px;
 }
 
 .bottom-left{
     position: absolute;
-    left: 50px;
+    left: 150px;
     bottom: 50px;
 }
 
 .bottom-right{
     position: absolute;
-    right: 50px;
+    right: 150px;
     bottom: 50px;
 }
 
