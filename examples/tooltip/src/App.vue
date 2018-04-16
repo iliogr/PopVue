@@ -1,9 +1,79 @@
 <template>
 <div id="app">
-    <vtooltip>
-        <div slot="content">This is what goes inside the tooltip</div>
-        <div slot="tooltip-text">Hover over me</div>
-    </vtooltip>
+
+    <div class="top-left">
+        <vtooltip
+            :options="{
+            color: 'red',
+            backgroundColor: '#DDD',
+            fontSize: 16,
+            textAlign: 'center',
+            arrowPlacement: 'right',
+            hOffset: 10,
+            Voffset: 2,
+        }">
+            <div slot="content">Hello there</div>
+            <div slot="tooltip-text">
+                I am top left
+            </div>
+        </vtooltip>
+    </div>
+
+    <div class="top-right">
+        <vtooltip
+            :options="{
+            color: 'red',
+            backgroundColor: '#DDD',
+            fontSize: 16,
+            textAlign: 'center',
+            arrowPlacement: 'right',
+            hOffset: 10,
+            Voffset: 2,
+        }">
+            <div slot="content">Hello there</div>
+            <div slot="tooltip-text">
+                I am top right
+            </div>
+        </vtooltip>
+    </div>
+
+    <div class="bottom-left">
+        <vtooltip
+            :options="{
+            color: 'red',
+            backgroundColor: '#DDD',
+            fontSize: 16,
+            textAlign: 'center',
+            arrowPlacement: 'right',
+            hOffset: 10,
+            Voffset: 2,
+        }">
+            <div slot="content">Hello there</div>
+            <div slot="tooltip-text">
+                I am bottom left
+            </div>
+        </vtooltip>
+    </div>
+
+    <div class="bottom-right">
+        <vtooltip
+            :options="{
+            color: 'red',
+            backgroundColor: '#DDD',
+            fontSize: 16,
+            textAlign: 'center',
+            arrowPlacement: 'right',
+            hOffset: 10,
+            Voffset: 2,
+        }">
+            <div slot="content">Hello there</div>
+            <div slot="tooltip-text">
+                I am bottom right
+            </div>
+        </vtooltip>
+    </div>
+
+
 </div>
 </template>
 
@@ -21,14 +91,38 @@ export default {
 
 <style>
 #app {
-    position: absolute;
-    top: 50px;
-    left: 210px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    /* margin-top: 60px; */
+    position: relative;
+    width: 100%;
+    height: 95vh;
 }
+
+
+.top-left{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+.top-right{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}
+
+.bottom-left{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}
+
+.bottom-right{
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+
 </style>
