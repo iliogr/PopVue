@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "v-poptool": "^1.0.7",
+    "v-poptool": "^1.0.8",
     "vue": "^2.5.2"
   },
   "devDependencies": {
